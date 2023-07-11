@@ -24,12 +24,12 @@ def bar_chart(feature):
     df.index = ['Survived', 'Dead']
 
     df.plot(kind = 'bar')
-#bar_chart function call to see bar graph
+#bar_chart function call to see bar graph 
 bar_chart('Sex')
 
 bar_chart('Pclass')
 
-#this code is for pie chart
+#this code is for pie chart , there is no function declair
 f, ax = plt.subplots(1,2, figsize =(18,8))
 train['Survived'].value_counts().plot.pie(explode=[0,0.1],autopct='%1.1f%%',ax=ax[0], shadow = True )
 ax[0].set_title('Survived')
