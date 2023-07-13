@@ -30,10 +30,12 @@ bar_chart('Sex')
 bar_chart('Pclass')
 
 #this code is for pie chart , there is no function declair
-f, ax = plt.subplots(1,2, figsize =(18,8))
-train['Survived'].value_counts().plot.pie(explode=[0,0.1],autopct='%1.1f%%',ax=ax[0], shadow = True )
+
+
+f, ax = plt.subplots(1, 2, figsize=(18, 8))
+train['Survived'].value_counts().plot.pie(explode=[0, 0.1], autopct='%1.1f%%', ax=ax[0], shadow=True)
 ax[0].set_title('Survived')
 ax[0].set_ylabel('')
-sns.countplot('Survived', data=train,ax=ax[1])
+sns.countplot('Survived', data=train, ax=ax[1])
 ax[1].set_title('Survived')
-print(plt.show())
+plt.show()
