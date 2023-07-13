@@ -34,4 +34,5 @@ ax[0].set_title('Survived')
 ax[0].set_ylabel('')
 sns.countplot('Survived', data =train, ax=ax[1])
 ax[1].set_title('Survived')
-plt.show()
+plt.show() # pie chart
+
