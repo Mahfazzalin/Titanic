@@ -32,10 +32,28 @@ bar_chart('Pclass')
 #this code is for pie chart , there is no function declair
 
 
-f, ax = plt.subplots(1, 2, figsize=(18, 8))
+f,ax = plt.subplots(1, 2, figsize=(18, 8))
 train['Survived'].value_counts().plot.pie(explode=[0, 0.1], autopct='%1.1f%%', ax=ax[0], shadow=True)
 ax[0].set_title('Survived')
 ax[0].set_ylabel('')
-sns.countplot('Survived', data=train, ax=ax[1])
+Survived_num = train['Survived'].astype('float')
+
+#sns.countplot(Survived_num, ax = ax[1] )
+
+sns.countplot(data=train,x='Survived', ax = ax[1])
 ax[1].set_title('Survived')
+plt.show()
+
+# ordinal
+pd.crosstab(train.Pclass, train.Survived, margins=True).style.background_gradient(cmap='summer_r')
+
+f, ax = plt.subplots(1, 2, figsize=(18, 8))
+
+train['Pclass'].value_counts().plot.bar(color=['#CD7F32', '#FFDF00', '#D3D3D3'], ax=ax[0])
+ax[0].set_title('Number of passengers by Pclass')
+ax[0].set_ylabel('Count')
+
+sns.countplot( data=train,x='Pclass', hue='Survived', ax=ax[1])
+ax[1].set_title('Pclass: Survived vs Dead')
+
 plt.show()
