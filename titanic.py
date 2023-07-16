@@ -57,3 +57,6 @@ sns.countplot( data=train,x='Pclass', hue='Survived', ax=ax[1])
 ax[1].set_title('Pclass: Survived vs Dead')
 
 plt.show()
+
+pd.crosstab([train.Sex,train.Survived], train.Pclass, margins=True).style.background_gradient(cmap='summer_r') 
+
