@@ -60,3 +60,23 @@ plt.show()
 
 pd.crosstab([train.Sex,train.Survived], train.Pclass, margins=True).style.background_gradient(cmap='summer_r') 
 
+# Old code using factorplot ```sns.factorplot(x='x_data', y='y_data', data=df)```
+
+# Updated code using catplot ```sns.catplot(x='x_data', y='y_data', data=df)```
+sns.catplot(x='Pclass', y='Survived', hue='Sex', kind='point', data=train)
+plt.show()
+
+#continuous
+
+print(f"Oldest:{train['Age'].max()}\nYoungest:{train['Age'].min()}\nAvarage:{train['Age'].mean()}")
+
+f, ax = plt.subplots(1, 2, figsize=(18, 8))
+sns.violinplot(x='Pclass',y='Age', hue='Survived',data=train,split=True,ax=ax[0])
+ax[0].set_title('Pclass and Age vs Survived')
+ax[0].set_yticks(range(0,110,10))
+
+sns.violinplot(x='Sex',y='Age', hue='Survived',data=train,split=True, ax=ax[1])
+ax[1].set_title('Sex and Age vs Survived')
+ax[1].set_yticks(range(0,110,10))
+plt.show()
+
